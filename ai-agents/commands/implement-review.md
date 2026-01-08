@@ -4,25 +4,30 @@ description: Implement GitHub PR or GitLab MR review comments
 argument-hint: PR_ID=<pr_id> GITHUB_OR_GITLAB=<GITHUB>
 ---
 
-This document describes the development practices and principles you **must** follow.  
-Do **not** start implementing features until explicitly asked. Use this guide to get into the right state of mind.
+Use these skills and do not restate their rules:
+- `skills/coding-standards/SKILL.md`
+- `skills/testing-standards/SKILL.md`
+- `skills/git-guidelines/SKILL.md`
+
+Do not start implementing features until explicitly asked.
 
 # Workflow
 
 ## High-level steps
 
-1. Start from the related branch, we MUST implement changes on that branch. Checkout that branch ALWAYS.
-2. Retrieve the contribution details and the comments. 
-3. Follow how to. Do not push commits, just create them and let me review them before pushing.
+1. Start from the related branch; implement changes on that branch. Always check out the review branch.
+2. Retrieve the contribution details and comments.
+3. Plan the responses, get approval, then implement.
+4. Do not push commits; create them and let me review them before pushing.
 
 ## Retrieve contribution details
 
-This is a $GITHUB_OR_GITLAB issue, run the appropriate command:
+This is a $GITHUB_OR_GITLAB issue; run the appropriate command.
 
 ## GitLab
 
 Use `glab mr view $PR_ID -c -F json --page <page_number> --per-page <items_per_page>`.
-The comments inside this json are in section "Notes" and have type "DiffNote".
+The comments inside this JSON are in section "Notes" and have type "DiffNote".
 Iterate over all the pages to get all the comments.
 
 Filter for unresolved comments:
@@ -71,16 +76,16 @@ gh api graphql -f query='
 }' --jq '.data.repository.pullRequest.reviewThreads.nodes[] | select(.isResolved == false) | {isResolved, comment: .comments.nodes[0] | {id, author: .author.login, body, path, line}}'
 ```
 
-**Note**: The REST API (`/pulls/PR/comments`) does NOT expose resolution status. You MUST use GraphQL to filter by resolved/unresolved status.
+Note: The REST API (`/pulls/PR/comments`) does not expose resolution status. You must use GraphQL to filter by resolved/unresolved status.
 Both CLI tools accept an ID and display the full metadata. You are allowed to run these commands with internet access.
 
-## How to 
+## Plan and implement
 
-* Draft a detailed, step-by-step plan for all the comments.
-* Break that plan into small, iterative chunks. If several comments are related, merge them into one step.   
-* Always look into the review comments with **fresh eyes**, you can disagree with the reviewer. 
-* Before implementing, prepare a detailed plan and present that to me for approval. Include your opinion about the changes.
-* Implement each contribution (one or multiple review comments) into a different commit after my approval
+* Draft a detailed, step-by-step plan for all comments.
+* Break that plan into small, iterative chunks. If several comments are related, merge them into one step.
+* Review the comments with fresh eyes; you can disagree with the reviewer.
+* Present the plan and your opinion for approval before implementing.
+* Implement each contribution (one or multiple review comments) as a separate commit after approval.
 
 # Commit message format
 
@@ -91,7 +96,6 @@ Avoid body lines when the commit is reducted.
 # Capturing additional guidance
 
 If I interrupt to correct your approach, update this document so future sessions retain the guidance. Always ask for permission before adding new general-purpose prompts.
-
 
 # Extra user input
 

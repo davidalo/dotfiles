@@ -3,9 +3,9 @@ description: Commit changes and push
 allowed-tools: Bash(git add:*), Bash(git commit:*), Bash(git push:*)
 ---
 
-Commit the changes that you have made in your latest implementation.
-Do not commit files that you haven't modified or that are unrelated to the change that you are implementing. Keep them there, do not remove them but do not commit them. Use `git add <files>`, do not use `git add -A`
-If your contribution is big enough with unrelated changes. Split the contribution into several commits.
+Commit the changes from the latest implementation.
+Follow `skills/git-guidelines/SKILL.md` for staging and git safety rules.
+Only commit related files; leave unrelated files untouched.
 Push the commits.
 
 # Commit message format

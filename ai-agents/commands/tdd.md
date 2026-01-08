@@ -3,97 +3,67 @@ description: Implement TDD contribution
 allowed-tools: Grep, Read, LS, Find, Bash(glab issue view:*), Bash(glab issue view:*), Bash(git checkout:*), Bash(git pull:*)
 ---
 
-This document describes the development practices and principles you **must** follow.  
-Do **not** start implementing features until explicitly asked—use this guide to get into the right state of mind.
+Use these skills and do not restate their rules:
+- `skills/test-driven-development/SKILL.md`
+- `skills/testing-standards/SKILL.md`
+- `skills/coding-standards/SKILL.md`
+- `skills/git-guidelines/SKILL.md`
 
-1. **Start from `master` or `main`** (unless told to work on a different branch).  
-2. **Understand the existing code** before making changes.  
-3. **Work on a dedicated branch** for every feature, bug‑fix, or requested refactor. If a branch already exists and is linked to the PR/MR, use it; otherwise create a new one.  
-4. **Follow test‑driven development (TDD)** using the Red → Green → Refactor cycle (detailed below). Make sure that the tests pass before commiting anything.
-5. **Do not push commits**, just create them and let me review them before pusing
+Do not start implementing features until explicitly asked.
+
+1. Start from `master` or `main` (unless told to work on a different branch).
+2. Understand the existing code before making changes.
+3. Work on a dedicated branch for every feature, bug-fix, or requested refactor. If a branch already exists and is linked to the PR/MR, use it; otherwise create a new one.
+4. Follow the TDD workflow from the `test-driven-development` skill.
+5. Do not push commits; create them and let me review them before pushing.
 
 ## Retrieve issue details
 
-Determine whether the target is a **GitLab Issue** or a **GitHub Issue**, then run the appropriate command:
+Determine whether the target is a GitLab Issue or a GitHub Issue, then run the appropriate command:
 
-- For GitLab: `glab issue view`
-- For GitHub: `gh issue view`
+- For GitLab: `glab issue view <issue-id>`
+- For GitHub: `gh issue view <issue-id>`
 
 Both CLI tools accept an ID and display the full metadata.
 
 ---
 
-# High‑level flow
+# High-level flow
 
 * Create a markdown file in `doc/dev/` named after the feature (use the same name as the branch). Do not commit those files.
-* Use this file to record clarifying questions, answers, and other insights while you work. Treat it as long‑term memory in case the session is interrupted.  
-* Feel free to edit, rearrange, or delete content in this notes file.  
-* Add only information that is genuinely helpful — **be brief and useful**.
+* Use this file to record clarifying questions, answers, and other insights while you work. Treat it as long-term memory in case the session is interrupted.
+* Feel free to edit, rearrange, or delete content in this notes file.
+* Add only information that is genuinely helpful -- be brief and useful.
 
 ---
 
 ## Understand the feature
 
 1. Read `README.md` and any relevant documentation it references. Read any code you need to understand what you have to do.
-2. Identify ambiguities and ask clarifying questions *before* you code.  
-   * Example: for a tic‑tac‑toe app you might ask, “Should this be a TUI, web‑based, or something else?”  
+2. Identify ambiguities and ask clarifying questions before you code.
 3. Update `README.md` or any other docs with any new insights that future developers would need.
 
 ---
 
-## Develop the feature
+## Plan before coding
 
-After you understand both the codebase and the requested feature, follow the **development flow** below.
-
-Avoid comments when they are not necessary, just add comments when you are making some assumptions, code is not
-clear or there is any edge case that it's not obvious.
-
-### Preparation
-
-* Draft a detailed, step‑by‑step blueprint for building the feature.  
-* Break that plan into small, iterative chunks.  
-* Refine until each step is:  
-  * **Small enough** to implement safely with thorough tests, yet  
-  * **Large enough** to move the project forward meaningfully.
-
----
-
-# Development flow (Red → Green → Refactor)
-
-1. **Red** – Write a failing test that captures the new desired behaviour.  
-   * Run the test: it **must fail**.  
-   * Do **not** change production code during this phase.  
-
-2. **Green** – Implement the simplest code that makes **all tests pass**.  
-   * Do **not** modify tests here.  
-   * Commit to git **only when the full test suite passes** (do not push yet).  
-
-3. **Refactor** – Improve the code you just wrote—and any related code—without changing behaviour.  
-   * For minor refactors, one commit is enough; for larger ones, commit in logical stages.  
-   * Commit only when tests pass.  
-
-Repeat this loop, one new test at a time, until the feature is complete.
+* Draft a detailed, step-by-step blueprint for building the feature.
+* Break that plan into small, iterative chunks.
+* Refine until each step is small enough to implement safely with thorough tests, yet large enough to move the project forward.
 
 ---
 
 # Commit message format
 
-<50‑character summary>
+<50-character summary>
 
 Avoid body lines when the commit is reducted.
-
----
-
-## Pure refactors
-
-When asked **only** to refactor existing code (as opposed to adding functionality), you do **not** begin with a new failing test—refactoring should not change behaviour.
 
 ---
 
 # Capturing additional guidance
 
 If I interrupt to correct your approach, update this document so future sessions retain the guidance. Always ask for permission before adding new general-purpose prompts.
-
 
 # Extra user input
 
