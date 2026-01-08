@@ -1,20 +1,26 @@
 ## Description
 
 My personal dotfiles for working with Claude Code and Codex.
+All AI agent assets live in the agents directory alongside `AGENTS.md`, `commands/`, and `skills/`.
 
-Claude Code commands and Codex prompts are equivalent but using their own syntax.
+Claude Code commands and Codex prompts are equivalent but use their own syntax.
 
 ## Getting started
 
 How to install:
 
+Run these commands from the agents directory (the one that contains `AGENTS.md`, `commands/`, and `skills/`).
+
 ```bash
 # Claude Code
-ln -sf $(pwd)/.claude/CLAUDE.md ~/.claude/CLAUDE.md
-ln -sf $(pwd)/.claude/commands ~/.claude/commands
+ln -sf $(pwd)/AGENTS.md ~/.claude/CLAUDE.md
+ln -sf $(pwd)/commands ~/.claude/commands
+ln -sf $(pwd)/skills ~/.claude/skills
 
 # Codex
-ln -sf $(pwd)/.codex/prompts ~/.codex/prompts
+ln -sf $(pwd)/commands ~/.codex/prompts
+ln -sf $(pwd)/AGENTS.md ~/.codex/AGENTS.md
+ln -sf $(pwd)/skills ~/.codex/skills
 ```
 
 ## Notes about plan mode

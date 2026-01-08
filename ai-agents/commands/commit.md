@@ -1,5 +1,6 @@
 ---
 description: Commit changes
+allowed-tools: Bash(git add:*), Bash(git commit:*)
 ---
 
 Commit the changes that you have made in your latest implementation.

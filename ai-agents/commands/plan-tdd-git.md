@@ -1,6 +1,7 @@
 ---
-description: Plan git contribution
-argument-hint: ISSUE_ID=<issue_id> GITHUB_OR_GITLAB=<GITHUB> EXTRA_PROMPT=<extra>
+description: Implement TDD contribution
+allowed-tools: Grep, Read, LS, Find, Bash(glab issue view:*), Bash(glab issue view:*), Bash(git checkout:*), Bash(git pull:*)
+argument-hint: ISSUE_ID=<issue_id> GITHUB_OR_GITLAB=<GITHUB>
 ---
 
 This document describes the development practices and principles you **must** follow.  
@@ -17,6 +18,7 @@ Do **not** start implementing features until explicitly asked. Use this guide to
 The code architecture must be presented as a block diagram with the different entities.
 Lay out the implementation plan as numbered Step X sections, each with indented sub-bullets for the details. 
 Lay out a change list with the changes per file / feature.
+5. Once approved, follow development flow (Red -> Green -> Refactor)
 
 ## Retrieve issue details
 
@@ -42,6 +44,39 @@ Both CLI tools accept an ID and display the full metadata. You are allowed to ru
 * You MUST review, understand, design and plan before presenting me the plan. You MUST not start implementing.
 * Complete the full analysis and planning, only present me when you have completed your planning mode.
 
+
+### Development flow (Red → Green → Refactor)
+
+1. **Red** – Write a failing test that captures the new desired behaviour.  
+   * Run the test: it **must fail**.  
+   * Do **not** change production code during this phase.  
+
+2. **Green** – Implement the simplest code that makes **all tests pass**.  
+   * Do **not** modify tests here.  
+   * Commit to git **only when the full test suite passes** (do not push yet).  
+
+3. **Refactor** – Improve the code you just wrote—and any related code—without changing behaviour.  
+   * For minor refactors, one commit is enough; for larger ones, commit in logical stages.  
+   * Commit only when tests pass.  
+
+Repeat this loop, one new test at a time, until the feature is complete.
+
+---
+
+# Commit message format
+
+<50‑character summary>
+
+Avoid body lines when the commit is reducted.
+
+---
+
+## Pure refactors
+
+When asked **only** to refactor existing code (as opposed to adding functionality), you do **not** begin with a new failing test—refactoring should not change behaviour.
+
+---
+
 # Capturing additional guidance
 
 If I interrupt to correct your approach, update this document so future sessions retain the guidance. Always ask for permission before adding new general-purpose prompts.
@@ -52,4 +87,3 @@ If I interrupt to correct your approach, update this document so future sessions
 Follow the following extra user input when available:
 
 $ARGUMENTS
-

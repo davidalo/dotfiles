@@ -1,7 +1,7 @@
 ---
 allowed-tools: [Grep, Read, LS, Bash(git checkout:*), Bash(gh pr view:*), Bash(glab mr view:*)]
 description: Implement GitHub PR or GitLab MR review comments
-argument-hint: [issue-id] [github-or-gitlab] [extra-prompt]
+argument-hint: PR_ID=<pr_id> GITHUB_OR_GITLAB=<GITHUB>
 ---
 
 This document describes the development practices and principles you **must** follow.  
@@ -17,17 +17,17 @@ Do **not** start implementing features until explicitly asked. Use this guide to
 
 ## Retrieve contribution details
 
-This is a $2 issue, run the appropriate command:
+This is a $GITHUB_OR_GITLAB issue, run the appropriate command:
 
 ## GitLab
 
-Use `glab mr view $1 -c -F json --page <page_number> --per-page <items_per_page>`.
+Use `glab mr view $PR_ID -c -F json --page <page_number> --per-page <items_per_page>`.
 The comments inside this json are in section "Notes" and have type "DiffNote".
 Iterate over all the pages to get all the comments.
 
 Filter for unresolved comments:
 ```bash
-glab mr view $1 -c -F json --page <page_id> --per-page 200 | jq '[.Notes[] | select(.resolvable == true and .resolved == false) | {body: .body, position: .position, resolved: .resolved, resolvable: .resolvable, created_at: .created_at}]'
+glab mr view $PR_ID -c -F json --page <page_id> --per-page 200 | jq '[.Notes[] | select(.resolvable == true and .resolved == false) | {body: .body, position: .position, resolved: .resolved, resolvable: .resolvable, created_at: .created_at}]'
 ```
 
 ## GitHub
@@ -38,7 +38,7 @@ Identify the owner and the repo name.
 Use this when you want to see all comments regardless of resolution status:
 
 ```bash
-gh api repos/<owner-name>/<repo-name>/pulls/$1/comments --jq '[.[] | {id, author: .user.login, body, path: .path, line: .line, created_at, updated_at}]'
+gh api repos/<owner-name>/<repo-name>/pulls/$PR_ID/comments --jq '[.[] | {id, author: .user.login, body, path: .path, line: .line, created_at, updated_at}]'
 ```
 
 ### Option 2: Get ONLY UNRESOLVED comments (GraphQL API)
@@ -48,7 +48,7 @@ Use this when you specifically need unresolved review threads:
 gh api graphql -f query='
 {
   repository(owner: "<owner-name>", name: "<repo-name>") {
-    pullRequest(number: $1) {
+    pullRequest(number: $PR_ID) {
       reviewThreads(first: 50) {
         nodes {
           id

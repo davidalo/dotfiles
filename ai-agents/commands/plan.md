@@ -1,6 +1,6 @@
 ---
-description: Implement git contribution
-argument-hint: ISSUE_ID=<issue_id> GITHUB_OR_GITLAB=<GITHUB>
+description: Plan contribution
+allowed-tools: Grep, Read, LS, Find
 ---
 
 This document describes the development practices and principles you **must** follow.  
@@ -10,19 +10,8 @@ Do **not** start implementing features until explicitly asked. Use this guide to
 
 ## High-level steps
 
-1. Start from `master` or `main` (unless told to work on a different branch). Create and work on a dedicated branch for every feature, bug-fix, or requested refactor. If a branch already exists and is linked to the PR/MR, use it; otherwise create a new one. Avoid `feature/` prefix, ideally use the issue name as reference.
-2. Retrieve the issue details to get the information. 
-3. Follow how to implement, use plan mode always before implementing
-4. Do not push commits, just create them and let me review them before pushing.
-
-## Retrieve issue details
-
-Determine whether the target is a **GitLab Issue** or a **GitHub Issue**, then run the appropriate command:
-
-- For GitLab: `glab issue view $ISSUE_ID`
-- For GitHub: `gh issue view $ISSUE_ID`
-
-Both CLI tools accept an ID and display the full metadata. You are allowed to run these commands with internet access.
+1. Follow how to implement, use plan mode always before implementing
+2. Do not push commits, just create them and let me review them before pushing.
 
 ## How to implement
 
@@ -59,9 +48,6 @@ Avoid body lines when the commit is reducted.
 If I interrupt to correct your approach, update this document so future sessions retain the guidance. Always ask for permission before adding new general-purpose prompts.
 
 
-# Extra user input
-
-Follow the following extra user input when available:
+# User input (details about the feature)
 
 $ARGUMENTS
-

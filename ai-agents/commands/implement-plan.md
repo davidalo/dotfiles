@@ -1,5 +1,6 @@
 ---
 description: Implement planned contribution
+allowed-tools: Grep, Read, LS, Find, Bash(gh issue view:*), Bash(glab issue view:*), Bash(git checkout:*), Bash(git pull:*)
 ---
 
 This document describes the development practices and principles you **must** follow.  
@@ -41,4 +42,3 @@ If I interrupt to correct your approach, update this document so future sessions
 Follow the following extra user input when available:
 
 $ARGUMENTS
-

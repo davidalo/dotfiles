@@ -1,7 +1,7 @@
 ---
 description: Plan git contribution
 allowed-tools: Grep, Read, LS, Find, Bash(gh issue view:*), Bash(glab issue view:*), Bash(git checkout:*), Bash(git pull:*)
-argument-hint: [issue-id] [github-or-gitlab]
+argument-hint: ISSUE_ID=<issue_id> GITHUB_OR_GITLAB=<GITHUB> EXTRA_ARGS=<extra_args>
 ---
 
 This document describes the development practices and principles you **must** follow.  
@@ -21,10 +21,10 @@ Lay out a change list with the changes per file / feature.
 
 ## Retrieve issue details
 
-This is a $2 issue, run the appropriate command:
+This is a $GITHUB_OR_GITLAB issue, run the appropriate command:
 
-- For GitLab: `glab issue view $1`
-- For GitHub: `gh issue view $1`
+- For GitLab: `glab issue view $ISSUE_ID`
+- For GitHub: `gh issue view $ISSUE_ID`
 
 Both CLI tools accept an ID and display the full metadata. You are allowed to run these commands with internet access.
 
@@ -52,5 +52,4 @@ If I interrupt to correct your approach, update this document so future sessions
 
 Follow the following extra user input when available:
 
-$ARGUMENTS
-
+$EXTRA_ARGS
