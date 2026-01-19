@@ -1,6 +1,6 @@
 ---
 description: Implement TDD contribution
-allowed-tools: Grep, Read, LS, Find, Bash(glab issue view:*), Bash(glab issue view:*), Bash(git checkout:*), Bash(git pull:*)
+allowed-tools: Grep, Read, LS, Find, mcp__github__*, mcp__gitlab__*, Bash(git checkout:*), Bash(git pull:*)
 ---
 
 Use these skills and do not restate their rules:
@@ -8,6 +8,7 @@ Use these skills and do not restate their rules:
 - `skills/testing-standards/SKILL.md`
 - `skills/coding-standards/SKILL.md`
 - `skills/git-guidelines/SKILL.md`
+Follow `skills/git-guidelines/SKILL.md` for commit message format.
 
 Do not start implementing features until explicitly asked.
 
@@ -19,12 +20,9 @@ Do not start implementing features until explicitly asked.
 
 ## Retrieve issue details
 
-Determine whether the target is a GitLab Issue or a GitHub Issue, then run the appropriate command:
+An issue URL will be provided in the arguments. If it is missing, ask for it before proceeding.
 
-- For GitLab: `glab issue view <issue-id>`
-- For GitHub: `gh issue view <issue-id>`
-
-Both CLI tools accept an ID and display the full metadata.
+Use the URL to determine whether the issue is on GitHub or GitLab, then use the corresponding MCP server to retrieve the issue details.
 
 ---
 
@@ -50,14 +48,6 @@ Both CLI tools accept an ID and display the full metadata.
 * Draft a detailed, step-by-step blueprint for building the feature.
 * Break that plan into small, iterative chunks.
 * Refine until each step is small enough to implement safely with thorough tests, yet large enough to move the project forward.
-
----
-
-# Commit message format
-
-<50-character summary>
-
-Avoid body lines when the commit is reducted.
 
 ---
 

@@ -1,64 +1,26 @@
 ---
 description: Implement contribution
-allowed-tools: Grep, Read, LS, Find, Bash(gh issue view:*), Bash(glab issue view:*), Bash(git checkout:*), Bash(git pull:*)
+allowed-tools: Grep, Read, LS, Find, mcp__github__*, mcp__gitlab__*, Bash(git checkout:*), Bash(git pull:*)
 ---
 
 Use these skills and do not restate their rules:
 - `skills/coding-standards/SKILL.md`
 - `skills/testing-standards/SKILL.md`
 - `skills/git-guidelines/SKILL.md`
+Follow `skills/git-guidelines/SKILL.md` for commit message format.
 
 Do not start implementing features until explicitly asked.
 
 1. Start from `master` or `main` (unless told to work on a different branch).
 2. Understand the existing code before making changes.
 3. Work on a dedicated branch for every feature, bug-fix, or requested refactor. If a branch already exists and is linked to the PR/MR, use it; otherwise create a new one.
-4. Omit the Claude footer from all commit messages.
-5. Do not push commits; create them and let me review them before pushing.
+4. Do not push commits; create them and let me review them before pushing.
 
 ## Retrieve issue details
 
-Determine whether the target is a GitLab Issue or a GitHub Issue, then run the appropriate command:
+An issue URL will be provided in the arguments. If it is missing, ask for it before proceeding.
 
-- For GitLab: `glab issue view <issue-id>`
-- For GitHub: `gh issue view <issue-id>`
-
-Both CLI tools accept an ID and display the full metadata.
-
----
-
-# High-level flow
-
-* Create a markdown file in `doc/dev/` named after the feature (use the same name as the branch). Do not commit those files.
-* Use this file to record clarifying questions, answers, and other insights while you work. Treat it as long-term memory in case the session is interrupted.
-* Feel free to edit, rearrange, or delete content in this notes file.
-* Add only information that is genuinely helpful -- be brief and useful.
-
----
-
-## Understand the feature
-
-1. Read `README.md` and any relevant documentation it references. Read any code you need to understand what you have to do.
-2. Identify ambiguities and ask clarifying questions before you code.
-3. Update `README.md` or any other docs with any new insights that future developers would need.
-
----
-
-## Plan before coding
-
-* Draft a detailed, step-by-step blueprint for building the feature.
-* Break that plan into small, iterative chunks.
-* Refine until each step is:
-  * Small enough to implement safely with thorough tests, yet
-  * Large enough to move the project forward meaningfully.
-
----
-
-# Commit message format
-
-<50-character summary>
-
-Avoid body lines; additional detail can be added later in the MR if needed.
+Use the URL to determine whether the issue is on GitHub or GitLab, then use the corresponding MCP server to retrieve the issue details.
 
 ---
 

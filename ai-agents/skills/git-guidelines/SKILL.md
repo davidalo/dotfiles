@@ -9,6 +9,11 @@ description: Git usage rules for commits, flags, and handling failures. Use when
 - Never include Claude footers in commit messages.
 - No "Generated with" or "Co-Authored-By: Claude" footers.
 
+## Commit Message Format
+
+Title: <50-character summary>
+Avoid body lines; prefer shorter titles over longer ones.
+
 ## Forbidden Flags
 - --no-verify
 - --no-hooks

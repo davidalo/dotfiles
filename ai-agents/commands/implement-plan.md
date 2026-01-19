@@ -1,12 +1,13 @@
 ---
 description: Implement planned contribution
-allowed-tools: Grep, Read, LS, Find, Bash(gh issue view:*), Bash(glab issue view:*), Bash(git checkout:*), Bash(git pull:*)
+allowed-tools: Grep, Read, LS, Find, mcp__github__*, mcp__gitlab__*, Bash(git checkout:*), Bash(git pull:*)
 ---
 
 Use these skills and do not restate their rules:
 - `skills/coding-standards/SKILL.md`
 - `skills/testing-standards/SKILL.md`
 - `skills/git-guidelines/SKILL.md`
+Follow `skills/git-guidelines/SKILL.md` for commit message format.
 
 Do not start implementing features until explicitly asked.
 
