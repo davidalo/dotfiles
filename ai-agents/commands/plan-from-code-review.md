@@ -15,14 +15,18 @@ Do not start implementing features until explicitly asked.
 
 ## High-level steps
 
-1. Start from the related branch; implement changes on that branch. Always check out the review branch.
+1. Start from the related branch; changes must be implemented on that branch. 
+Always check out to the related branch if you are not already on it. 
+Use `git fetch` and `git checkout <branch-name>`, use the branch name from the PR.
 2. Retrieve the contribution details and comments.
-3. Review the comments, get approval, then implement.
-4. Do not push commits; create them and let me review them before pushing.
+3. Assess the code review comments and the comments on the GitHub issue.
+4. Present me the assesment, ask for approval before making any change.
+4. Implement changes
+5. Do not push commits; create them and let me review them before pushing.
 
-## Retrieve contribution details
+### Retrieve contribution details
 
-An MR/PR URL will be provided in the arguments. If it is missing, ask for it before proceeding.
+An MR/PR URL or its ID will be provided in the arguments. If it is missing, ask for it before proceeding.
 
 Use the URL to determine whether the target is GitHub or GitLab, then use the corresponding MCP server to retrieve the contribution details and review comments.
 
@@ -31,13 +35,20 @@ Use the URL to determine whether the target is GitHub or GitLab, then use the co
 
 Capture comment metadata (author, body, file path, line, timestamps) whenever the MCP tool provides it.
 
-## Implement changes
+### Assess the code review
 
-* Review the comments with fresh eyes; you can disagree with the reviewer.
+* Group the related comments if related. If several comments are related, they must 
+be assesed and implemented them together as a single contribution.
+* Review group of comments, one by one. You must assess if the review is fair, you can disagree with the reviewer.
+* Prepare a report: include the comment, who made it and pointing to which code, your decision (APPROVE REJECT or similar wording), and a brief description about your decision and the comment itself.
+
+
+### Implement changes
+
 * If several comments are related, implement them together as a single contribution.
-* Implement each contribution (one or multiple review comments) as a separate commit after approval.
+* Implement each contribution (one or multiple review comments) as a separate commit.
 
-# Capturing additional guidance
+## Capturing additional guidance
 
 If I interrupt to correct your approach, update this document so future sessions retain the guidance. Always ask for permission before adding new general-purpose prompts.
 

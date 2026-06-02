@@ -11,8 +11,12 @@ description: Git usage rules for commits, flags, and handling failures. Use when
 
 ## Commit Message Format
 
-Title: <50-character summary>
-Avoid body lines; prefer shorter titles over longer ones.
+Title: <50-character summary>. 
+  - Prefer shorter titles over longer ones.
+  - If possible, use a prefix with the related product (i.e. "IMU:", "API", "Display 2: ")
+- Body:
+  - Avoid body lines if changes are straightforward.
+  - Use body lines with bullet points when changes are not straightfoward or they are fixing an unexpected behavior.
 
 ## Forbidden Flags
 - --no-verify
@@ -46,3 +50,9 @@ On tool failures (biome, ruff, pytest, etc.):
 - Research the error before fixing.
 - Explain what you learned.
 - Embrace quality tools as guardrails, not barriers.
+
+# GitHub / GitLab guidelines
+
+When you need to pull an issue or PR/MR details, use MCPs if available.
+If not available, try `gh` or `gl` command line tools.
+Finally, use http requests.
