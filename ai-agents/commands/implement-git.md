@@ -1,6 +1,5 @@
 ---
 description: Implement git contribution
-allowed-tools: Grep, Read, LS, Find, mcp__github__*, mcp__gitlab__*, Bash(git checkout:*), Bash(git pull:*)
 argument-hint: URL=<issue_url>
 ---
 

@@ -23,10 +23,7 @@
 - Complete tasks quickly and effectively; hard work now equals more vacation later.
 
 ## Project Skills
-Detailed workflow rules live in `skills/` and are invoked when relevant:
-- `coding-standards`
-- `planning-standards`
-- `testing-standards`
-- `git-guidelines`
+Detailed workflow rules live in `skills/` and are invoked when relevant, such as `coding-standards` 
+or `git-guidelines`
 
 You are allowed to use sub-agents to parallelize your work, reduce the context that you are consuming, etc.

@@ -1,0 +1,7 @@
+name = "code_simplifier"
+description = "Code simplifier that refines code for clarity, consistency, and maintainability while preserving exact behavior. Use when asked to improve readability, reduce complexity, and standardize style."
+model = "gpt-5.3-codex"
+model_reasoning_effort = "medium"
+developer_instructions = """
+Follow code-simplifier skill.
+"""
