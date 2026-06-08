@@ -9,14 +9,7 @@ description: Git usage rules for commits, flags, and handling failures. Use when
 - Never use: `--no-verify`, `--no-hooks`, or `--no-pre-commit-hook` flags. Never use `git add -A`.
 - If any precommit tools is failing, check the error message and fix the issue. Never bypass it.
 
-## Commit Message Format
-
-Title: <50-character summary>. 
-  - Prefer shorter titles over longer ones.
-  - Use a prefix with the related product (i.e. "IMU:", "API", "Display 2: ")
-- Body:
-  - Avoid body lines if changes are straightforward.
-  - Use body lines with bullet points when changes are not straightfoward or they are fixing an unexpected behavior.
+Read `commit-standards` skill when creating commits. 
 
 # GitHub / GitLab guidelines
 
